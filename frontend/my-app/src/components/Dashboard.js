@@ -6,6 +6,7 @@ import LearningCard from "./LearningCard";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchLearnings } from "./../store/LearningsAction";
 import styles from "./Dashboard.module.css";
+import NavBar from "./NavBar";
 
 export default function Dashboard() {
   const navigate = useNavigate();
@@ -23,6 +24,7 @@ export default function Dashboard() {
 
   return (
     <>
+      <NavBar />
       <div class="grid grid-cols-1 w-1/2 mx-auto">
         <div>
           <h1 class={styles.heading}>Your Learnings</h1>

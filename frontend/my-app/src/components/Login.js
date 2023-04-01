@@ -15,14 +15,21 @@ import {
   FormHelperText,
   InputRightElement,
 } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
+
 import { FaUserAlt, FaLock } from "react-icons/fa";
 
 const CFaUserAlt = chakra(FaUserAlt);
 const CFaLock = chakra(FaLock);
 
 const Login = () => {
+  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const handleShowClick = () => setShowPassword(!showPassword);
+
+  const handleLogin = () => {
+    navigate("/dashboard");
+  };
 
   return (
     <Flex
@@ -99,6 +106,9 @@ const Login = () => {
           Sign Up
         </Link>
       </Box>
+      <Button onClick={handleLogin} colorScheme="green">
+        Login
+      </Button>
     </Flex>
   );
 };

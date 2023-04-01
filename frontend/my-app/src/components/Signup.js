@@ -18,6 +18,7 @@ import {
 } from "@chakra-ui/react";
 import { FaUserAlt, FaLock } from "react-icons/fa";
 import { BiWalletAlt } from "react-icons/bi";
+import { AiOutlineMail } from "react-icons/ai";
 
 const CFaUserAlt = chakra(FaUserAlt);
 const CFaLock = chakra(FaLock);
@@ -71,14 +72,14 @@ const Signup = () => {
                   <InputGroup>
                     <InputLeftElement
                       pointerEvents="none"
-                      children={<CFaUserAlt color="gray.300" />}
+                      children={<BiWalletAlt color="gray.300" />}
                     />
                     <Input type="text" placeholder="Wallet address" />
                   </InputGroup>
                   <InputGroup>
                     <InputLeftElement
                       pointerEvents="none"
-                      children={<BiWalletAlt color="gray.300" />}
+                      children={<AiOutlineMail color="gray.300" />}
                     />
                     <Input type="email" placeholder="email address" />
                   </InputGroup>
@@ -100,6 +101,12 @@ const Signup = () => {
               </Button>
             </Stack>
           </form>
+        </Box>
+        <Box>
+          Already have a account?{" "}
+          <Link color="blue.500" href="/login">
+            log in
+          </Link>
         </Box>
       </Stack>
       <Button colorScheme="green">Signup</Button>

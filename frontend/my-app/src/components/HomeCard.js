@@ -3,6 +3,7 @@ import FlipCard from "./Flipcard";
 import { Button } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import AskModal from "./AskMeModal";
+import NavBar from "./NavBar";
 
 function HomeCard() {
   const sample_data = [
@@ -28,11 +29,12 @@ function HomeCard() {
   const navigate = useNavigate();
 
   function handleOnClickHome() {
-    navigate("/");
+    navigate("/dashboard");
   }
   const count = 0;
   return (
     <>
+      <NavBar />
       <Button onClick={handleOnClickHome}>Home</Button>
       <AskModal></AskModal>
       <div className="grid grid-col-1  mx-auto">
