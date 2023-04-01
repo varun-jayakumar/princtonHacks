@@ -1,0 +1,424 @@
+{
+    "roadmap": [
+        {
+            "day": "Day 1",
+            "topics": [
+                "Introduction to Flutter",
+                "Flutter Architecture",
+                "Flutter Widgets"
+            ],
+            "assignments": [
+                "Install Flutter",
+                "Create a new Flutter project",
+                "Create a simple Flutter app with widgets"
+            ],
+            "mcqs": [
+                {
+                    "question": "What is Flutter?",
+                    "options": [
+                        "A programming language",
+                        "A mobile app development framework",
+                        "A database management system"
+                    ],
+                    "answer": "B"
+                },
+                {
+                    "question": "What is a widget in Flutter?",
+                    "options": [
+                        "A visual element of the user interface",
+                        "A data storage container",
+                        "A programming function"
+                    ],
+                    "answer": "A"
+                },
+                {
+                    "question": "What is the architecture of a Flutter app?",
+                    "options": [
+                        "MVC",
+                        "MVVM",
+                        "Widgets"
+                    ],
+                    "answer": "C"
+                }
+            ]
+        },
+        {
+            "day": "Day 2",
+            "topics": [
+                "Stateless and Stateful Widgets",
+                "Layouts in Flutter",
+                "Debugging in Flutter"
+            ],
+            "assignments": [
+                "Create a stateless widget",
+                "Create a stateful widget",
+                "Create a layout with multiple widgets"
+            ],
+            "mcqs": [
+                {
+                    "question": "What is a stateless widget in Flutter?",
+                    "options": [
+                        "A widget that can change its state",
+                        "A widget that cannot change its state",
+                        "A widget that stores data"
+                    ],
+                    "answer": "B"
+                },
+                {
+                    "question": "What is a layout in Flutter?",
+                    "options": [
+                        "A widget that displays text",
+                        "A widget that displays images",
+                        "A widget that arranges other widgets"
+                    ],
+                    "answer": "C"
+                },
+                {
+                    "question": "What is the purpose of debugging in Flutter?",
+                    "options": [
+                        "To fix errors in the code",
+                        "To add new features to the app",
+                        "To optimize the performance of the app"
+                    ],
+                    "answer": "A"
+                }
+            ]
+        },
+        {
+            "day": "Day 3",
+            "topics": [
+                "Navigation in Flutter",
+                "Forms in Flutter",
+                "Animations in Flutter"
+            ],
+            "assignments": [
+                "Add navigation to a Flutter app",
+                "Create a form with input fields",
+                "Add an animation to a widget"
+            ],
+            "mcqs": [
+                {
+                    "question": "What is navigation in Flutter?",
+                    "options": [
+                        "Moving between screens in an app",
+                        "Adding visual effects to widgets",
+                        "Creating a data storage system"
+                    ],
+                    "answer": "A"
+                },
+                {
+                    "question": "What is a form in Flutter?",
+                    "options": [
+                        "A widget that displays text",
+                        "A widget that displays images",
+                        "A widget that collects user input"
+                    ],
+                    "answer": "C"
+                },
+                {
+                    "question": "What is an animation in Flutter?",
+                    "options": [
+                        "A visual effect that changes the appearance of a widget",
+                        "A data storage container",
+                        "A programming function"
+                    ],
+                    "answer": "A"
+                }
+            ]
+        },
+        {
+            "day": "Day 4",
+            "topics": [
+                "HTTP Requests in Flutter",
+                "Working with APIs in Flutter",
+                "Data Persistence in Flutter"
+            ],
+            "assignments": [
+                "Make an HTTP request in Flutter",
+                "Integrate an API into a Flutter app",
+                "Implement data persistence in a Flutter app"
+            ],
+            "mcqs": [
+                {
+                    "question": "What is an HTTP request in Flutter?",
+                    "options": [
+                        "A way to display text in a widget",
+                        "A way to collect user input",
+                        "A way to get data from a server"
+                    ],
+                    "answer": "C"
+                },
+                {
+                    "question": "What is an API in Flutter?",
+                    "options": [
+                        "A programming language",
+                        "A mobile app development framework",
+                        "A set of rules for accessing a web-based software application"
+                    ],
+                    "answer": "C"
+                },
+                {
+                    "question": "What is data persistence in Flutter?",
+                    "options": [
+                        "A way to store data permanently",
+                        "A way to display data in a widget",
+                        "A way to collect user input"
+                    ],
+                    "answer": "A"
+                }
+            ]
+        },
+        {
+            "day": "Day 5",
+            "topics": [
+                "Flutter Plugins",
+                "Firebase Integration in Flutter",
+                "Flutter Testing"
+            ],
+            "assignments": [
+                "Integrate a Flutter plugin into a project",
+                "Integrate Firebase into a Flutter app",
+                "Write a test for a Flutter app"
+            ],
+            "mcqs": [
+                {
+                    "question": "What is a Flutter plugin?",
+                    "options": [
+                        "A way to add functionality to a Flutter app",
+                        "A way to store data permanently",
+                        "A way to display data in a widget"
+                    ],
+                    "answer": "A"
+                },
+                {
+                    "question": "What is Firebase in Flutter?",
+                    "options": [
+                        "A programming language",
+                        "A mobile app development framework",
+                        "A cloud-based platform for building mobile and web applications"
+                    ],
+                    "answer": "C"
+                },
+                {
+                    "question": "What is Flutter testing?",
+                    "options": [
+                        "A way to optimize the performance of a Flutter app",
+                        "A way to fix errors in the code",
+                        "A way to ensure that a Flutter app works correctly"
+                    ],
+                    "answer": "C"
+                }
+            ]
+        },
+        {
+            "day": "Day 6",
+            "topics": [
+                "Flutter Design Patterns",
+                "Flutter Best Practices",
+                "Flutter Packages"
+            ],
+            "assignments": [
+                "Implement a design pattern in a Flutter app",
+                "Follow best practices in a Flutter app",
+                "Integrate a Flutter package into a project"
+            ],
+            "mcqs": [
+                {
+                    "question": "What are design patterns in Flutter?",
+                    "options": [
+                        "A set of rules for building apps",
+                        "A set of pre-defined solutions to common software problems",
+                        "A way to optimize the performance of a Flutter app"
+                    ],
+                    "answer": "B"
+                },
+                {
+                    "question": "What are best practices in Flutter?",
+                    "options": [
+                        "A set of rules for building apps",
+                        "A way to store data permanently",
+                        "A way to collect user input"
+                    ],
+                    "answer": "A"
+                },
+                {
+                    "question": "What are Flutter packages?",
+                    "options": [
+                        "A set of pre-built widgets",
+                        "A set of pre-built functions",
+                        "A set of pre-built code libraries"
+                    ],
+                    "answer": "C"
+                }
+            ]
+        },
+        {
+            "day": "Day 7",
+            "topics": [
+                "Flutter Deployment",
+                "Flutter Performance Optimization",
+                "Flutter Debugging Techniques"
+            ],
+            "assignments": [
+                "Deploy a Flutter app to a device",
+                "Optimize the performance of a Flutter app",
+                "Use debugging techniques to fix errors in a Flutter app"
+            ],
+            "mcqs": [
+                {
+                    "question": "What is deployment in Flutter?",
+                    "options": [
+                        "The process of building an app",
+                        "The process of testing an app",
+                        "The process of making an app available to users"
+                    ],
+                    "answer": "C"
+                },
+                {
+                    "question": "What is performance optimization in Flutter?",
+                    "options": [
+                        "A way to make an app run faster",
+                        "A way to add new features to an app",
+                        "A way to store data permanently"
+                    ],
+                    "answer": "A"
+                },
+                {
+                    "question": "What are debugging techniques in Flutter?",
+                    "options": [
+                        "A way to add visual effects to widgets",
+                        "A way to fix errors in the code",
+                        "A way to optimize the performance of an app"
+                    ],
+                    "answer": "B"
+                }
+            ]
+        },
+        {
+            "day": "Day 8",
+            "topics": [
+                "Advanced Flutter Concepts",
+                "Flutter UI/UX Design",
+                "Flutter Security"
+            ],
+            "assignments": [
+                "Implement an advanced Flutter concept in a project",
+                "Design a UI/UX for a Flutter app",
+                "Implement security measures in a Flutter app"
+            ],
+            "mcqs": [
+                {
+                    "question": "What are advanced Flutter concepts?",
+                    "options": [
+                        "Concepts beyond the basics of Flutter",
+                        "Pre-built solutions to common software problems",
+                        "A set of rules for building apps"
+                    ],
+                    "answer": "A"
+                },
+                {
+                    "question": "What is UI/UX design in Flutter?",
+                    "options": [
+                        "A way to optimize the performance of an app",
+                        "A way to add visual effects to widgets",
+                        "The design of the user interface and user experience"
+                    ],
+                    "answer": "C"
+                },
+                {
+                    "question": "What is security in Flutter?",
+                    "options": [
+                        "A way to store data permanently",
+                        "A way to make an app run faster",
+                        "The protection of data and information in an app"
+                    ],
+                    "answer": "C"
+                }
+            ]
+        },
+        {
+            "day": "Day 9",
+            "topics": [
+                "Flutter Project Development",
+                "Flutter Project Management",
+                "Flutter Project Collaboration"
+            ],
+            "assignments": [
+                "Develop a complete Flutter project",
+                "Manage a Flutter project using tools and techniques",
+                "Collaborate on a Flutter project with a team"
+            ],
+            "mcqs": [
+                {
+                    "question": "What is Flutter project development?",
+                    "options": [
+                        "The process of building a complete Flutter project",
+                        "The process of fixing errors in a Flutter project",
+                        "The process of adding new features to a Flutter project"
+                    ],
+                    "answer": "A"
+                },
+                {
+                    "question": "What is project management in Flutter?",
+                    "options": [
+                        "The process of managing a Flutter project using tools and techniques",
+                        "The process of developing a Flutter project",
+                        "The process of fixing errors in a Flutter project"
+                    ],
+                    "answer": "A"
+                },
+                {
+                    "question": "What is project collaboration in Flutter?",
+                    "options": [
+                        "The process of collaborating with a team on a Flutter project",
+                        "The process of developing a Flutter project",
+                        "The process of fixing errors in a Flutter project"
+                    ],
+                    "answer": "A"
+                }
+            ]
+        },
+        {
+            "day": "Day 10",
+            "topics": [
+                "Flutter Career Opportunities",
+                "Flutter Community and Resources",
+                "Flutter Future and Trends"
+            ],
+            "assignments": [
+                "Research career opportunities in Flutter",
+                "Explore the Flutter community and resources",
+                "Research the future and trends of Flutter"
+            ],
+            "mcqs": [
+                {
+                    "question": "What are career opportunities in Flutter?",
+                    "options": [
+                        "Jobs related to Flutter development",
+                        "The potential for career growth in Flutter",
+                        "The salary range for Flutter developers"
+                    ],
+                    "answer": "A"
+                },
+                {
+                    "question": "What is the Flutter community?",
+                    "options": [
+                        "A group of Flutter developers",
+                        "A set of pre-built widgets and libraries",
+                        "A cloud-based platform for building mobile and web applications"
+                    ],
+                    "answer": "A"
+                },
+                {
+                    "question": "What are the future and trends of Flutter?",
+                    "options": [
+                        "The potential for growth and innovation in Flutter",
+                        "Current popular trends in Flutter development",
+                        "The history of Flutter and its evolution"
+                    ],
+                    "answer": "A"
+                }
+            ]
+        }
+    ]
+}

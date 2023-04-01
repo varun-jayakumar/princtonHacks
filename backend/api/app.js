@@ -1,5 +1,5 @@
 import cors from 'cors';
-// import routes from './routes/index.js'
+ import routes from './routes/index.js'
 // import model from './models/index.js'
 import mongoose from 'mongoose';
 import express from 'express';
@@ -16,14 +16,14 @@ app.use(express.urlencoded());
 app.use(cors());
 console.log("in app")
 
-app.post("/roadmap", async (req, res) => {
+// app.post("/roadmap", async (req, res) => {
 
-    return callOpenAiApi(req,res);
+//     return callOpenAiApi(req,res);
     
     
-    });
+//     });
 // adding the routes
-// routes(app);
+routes(app);
 // notification();
 //connecting db
 mongoose.connect('mongodb+srv://jayakumarva:xKw9I5gZ4LG3cGQd@cluster0.zqpinsh.mongodb.net/princtonhacksDB?retryWrites=true&w=majority').then(()=>{

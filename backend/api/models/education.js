@@ -14,13 +14,15 @@ const educationSchema = new mongoose.Schema(
         topic: {
             type : String
         },
-        Roadmap: [{
+        roadmap: [{
             type: mongoose.SchemaTypes.ObjectId,
             required: true
           }],
-        user : {
+        user : [{
             type: mongoose.SchemaTypes.ObjectId,
-        }
+        }]
     });
 
-    export const Roadmap = mongoose.model("roadmap", educationSchema);
+    export const education = mongoose.model("education", educationSchema);
+
+    export default {education}
