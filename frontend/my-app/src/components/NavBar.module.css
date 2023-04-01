@@ -1,0 +1,19 @@
+.ul {
+  display: flex;
+  justify-content: space-around;
+  background-color: black;
+  color: white;
+  padding: 0px;
+  flex-direction: row;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.body {
+  margin-bottom: 50px;
+}
+
+.mainHeading {
+  font-size: 30px;
+  margin: 10px;
+}

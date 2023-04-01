@@ -1,0 +1,13 @@
+button {
+  padding: 20px;
+  margin: 20px;
+}
+
+.card {
+  margin: 10px;
+}
+
+.heading {
+  font-weight: bold;
+  font-size: 28px;
+}

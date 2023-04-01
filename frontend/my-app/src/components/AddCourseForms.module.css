@@ -1,4 +1,12 @@
 .block {
-    background-color: aqua;
-    width: 50%;
+  width: 50%;
+  margin: auto;
+}
+
+.margin {
+  margin-top: 5%;
+}
+
+span {
+  margin-top: 10px;
 }

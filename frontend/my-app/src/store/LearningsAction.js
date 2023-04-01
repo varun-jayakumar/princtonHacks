@@ -1,6 +1,6 @@
-import { addLearningFormActions } from "./addLearningFormSlice";
+import { LearningsSliceActions } from "./LearningsSlice";
 
-export const fetchRoadMap = (data) => {
+export const fetchLearnings = (data) => {
   return async (dispatch) => {
     const fetchHandler = async (data) => {
       const res = await fetch(`API_path`);
@@ -21,10 +21,9 @@ export const fetchRoadMap = (data) => {
     };
 
     try {
-      // const roadmapData = await fetchHandler(data);
-      console.log(data);
-      const roadmapData = { attribute1: "dummydata" };
-      dispatch(addLearningFormActions.updateData(roadmapData));
+      // const learningsData = await fetchHandler(data);
+      const learningsData = ["learnings1", "learning2"];
+      dispatch(LearningsSliceActions.updateData(learningsData));
     } catch (err) {
       console.log(err);
     }

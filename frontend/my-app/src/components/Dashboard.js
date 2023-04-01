@@ -1,35 +1,51 @@
 import AddCourseForms from "./AddCourseForms";
-import { useEffect,useState } from "react";
-import {
-    Link
-  } from 'react-router-dom';
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import LearningCard from "./LearningCard";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchLearnings } from "./../store/LearningsAction";
+import styles from "./Dashboard.module.css";
 
-import { useNavigate } from 'react-router-dom';
-export default function Dashboard(){
-const navigate = useNavigate()
+export default function Dashboard() {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-const onClickAddCourseHandler = () =>{
-    navigate("/add")
+  const learnings = useSelector((state) => state.learnings.learnings);
+
+  useEffect(() => {
+    dispatch(fetchLearnings());
+  }, [dispatch]);
+
+  const onClickAddCourseHandler = () => {
+    navigate("/add");
+  };
+
+  return (
+    <>
+      <div class="grid grid-cols-1 w-1/2 mx-auto">
+        <div>
+          <h1 class={styles.heading}>Your Learnings</h1>
+        </div>
+        <div>
+          {learnings.map((learning) => (
+            <div className={styles.card}>
+              <LearningCard learning={learning} />
+            </div>
+          ))}
+        </div>
+        <div className="w-98 mx-auto">
+          <button
+            onClick={onClickAddCourseHandler}
+            class="rounded-full bg-red-600 text-gray-100 px-8 py-2 hover:bg-red-500"
+          >
+            + add Learning
+          </button>
+        </div>
+      </div>
+    </>
+  );
 }
-
-
-
-    return (
-        <>
-
-  <div class="grid grid-cols-1">
-    <div class="mx-auto">
-    <button onClick={onClickAddCourseHandler} class="w-96 rounded-md bg-gray-950 text-gray-100 px-8 py-3">add Learning</button>
-    </div>
-    <div>2</div>
-    
-  </div>
-</>
-
-    );
-
-}
-
 
 /* <div class="items-center">
       <button
