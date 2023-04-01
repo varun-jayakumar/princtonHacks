@@ -17,3 +17,4 @@ const McqSchema = new mongoose.Schema({
 
 
 export const Mcq = mongoose.model("Mcq", McqSchema);
+export default {Mcq};

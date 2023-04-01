@@ -13,7 +13,6 @@ const RoadmapSchema = new mongoose.Schema(
         }],
         mcqs : [{
             type: mongoose.SchemaTypes.ObjectId,
-            required: true
           }],
         is_completed:{
             type: Boolean,
@@ -27,3 +26,4 @@ const RoadmapSchema = new mongoose.Schema(
     });
 
     export const Roadmap = mongoose.model("Roadmap", RoadmapSchema);
+    export default {Roadmap}
