@@ -1,5 +1,4 @@
-import user from "./../models/user";
-
+import { user } from "../models/user.js";
 const setResponse = (obj, response) => {
   response.status(200);
   response.json(obj);
@@ -15,7 +14,7 @@ export const getLearnings = async (req, res) => {
   try {
     let id = JSON.parse(req.body);
 
-    let userdata = await user.findOne(id);
+    // let userdata = await user.findOne(id);
     let learningsArray = userdata.learnings;
     learningsArray.array.forEach((learning) => {
       console.log(learning);
