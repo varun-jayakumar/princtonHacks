@@ -1,24 +1,31 @@
+import * as roadMapService from "../service/roadMapService.js";
+import callOpenAiApi_refresher from "./../utils/chatgptapicall-refresher.js";
 
-import * as roadMapService from '../service/roadMapService.js';
+const setResponse = (obj, response) => {
+  response.status(200);
+  response.json(obj);
+};
 
-const setResponse = (obj,response) => {
-    response.status(200);
-    response.json(obj);
-}
-
-// this function is used to set the error in response 
+// this function is used to set the error in response
 const setError = (err, response) => {
-    response.status(500);
-    response.json(err);
-}
-
+  response.status(500);
+  response.json(err);
+};
 
 export const post = async (req, res) => {
-	try {
-       
-        const user = await roadMapService.save(req,res);
-        //setResponse(user,res)
-	} catch (error) {
-		setError(error,res);
-	}
-}
+  try {
+    const user = await roadMapService.save(req, res);
+    //setResponse(user,res)
+  } catch (error) {
+    setError(error, res);
+  }
+};
+
+export const getRefresher = async (req, res) => {
+  try {
+    let response = await callOpenAiApi_refresher(req.body.topics);
+    setResponse({ response }, res);
+  } catch (error) {
+    setError(error, res);
+  }
+};
