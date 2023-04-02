@@ -1,5 +1,6 @@
 import * as roadMapService from "../service/roadMapService.js";
 import callOpenAiApi_refresher from "./../utils/chatgptapicall-refresher.js";
+import * as roadMapService1 from '../service/roadMapday1.js';
 
 const setResponse = (obj, response) => {
   response.status(200);
@@ -28,4 +29,31 @@ export const getRefresher = async (req, res) => {
   } catch (error) {
     setError(error, res);
   }
+};
+
+export const postday1 = async (req,res) => {
+    try {
+        const user = await roadMapService1.save(req,res);
+        //setResponse(user,res)
+	} catch (error) {
+		setError(error,res);
+	}
+};
+
+export const postday2 = async (req,res) => {
+    try {
+        const user = await roadMapService1.saveotherthanone(req,res);
+        //setResponse(user,res)
+	} catch (error) {
+		setError(error,res);
+	}
+};
+
+export const retrive_from_db = async (req,res) => {
+    try {
+        const user = await roadMapService1.retrive_db(req,res);
+        //setResponse(user,res)
+	} catch (error) {
+		setError(error,res);
+	}
 };

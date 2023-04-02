@@ -14,6 +14,10 @@ const educationSchema = new mongoose.Schema(
         topic: {
             type : String
         },
+        count : {
+            type: Number,
+            default: 0
+        },
         roadmap: [{
             type: mongoose.SchemaTypes.ObjectId,
             required: true
