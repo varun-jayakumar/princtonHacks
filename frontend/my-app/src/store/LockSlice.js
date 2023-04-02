@@ -1,7 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const initialState = {};
+
 export const LockSlice = createSlice({
-  name: "learnings",
+  name: "lock",
   initialState: { lock_no: 0 },
   reducers: {
     unlock: (state, action) => {

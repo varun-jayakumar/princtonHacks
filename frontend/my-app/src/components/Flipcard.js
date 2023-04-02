@@ -17,129 +17,44 @@ function FlipCard(props) {
     Array(props.assignments.length).fill(false)
   );
 
-  const sample_questions = [
-    {
-      question:
-        "Which of the following statements best describes React components?",
-      options: [
-        {
-          option:
-            "A) React components are reusable pieces of code that encapsulate behavior and UI.",
-          isCorrect: true,
-        },
-        {
-          option:
-            "B) React components are only used for UI design and cannot contain any behavior.",
-          isCorrect: false,
-        },
-        {
-          option:
-            "C) React components are only used in class-based components, not in functional components.",
-          isCorrect: false,
-        },
-        {
-          option:
-            "D) React components can only be used in conjunction with Redux.",
-          isCorrect: false,
-        },
-      ],
-      answer:
-        "A) React components are reusable pieces of code that encapsulate behavior and UI.",
-    },
-    {
-      question:
-        "hari of the following statements best describes React components?",
-      options: [
-        {
-          option:
-            "A) React components are reusable pieces of code that encapsulate behavior and UI.",
-          isCorrect: true,
-        },
-        {
-          option:
-            "B) React components are only used for UI design and cannot contain any behavior.",
-          isCorrect: false,
-        },
-        {
-          option:
-            "C) React components are only used in class-based components, not in functional components.",
-          isCorrect: false,
-        },
-        {
-          option:
-            "D) React components can only be used in conjunction with Redux.",
-          isCorrect: false,
-        },
-      ],
-      answer:
-        "A) React components are reusable pieces of code that encapsulate behavior and UI.",
-    },
-    {
-      question:
-        "Varun of the following statements best describes React components?",
-      options: [
-        {
-          option:
-            "A) React components are reusable pieces of code that encapsulate behavior and UI.",
-          isCorrect: true,
-        },
-        {
-          option:
-            "B) React components are only used for UI design and cannot contain any behavior.",
-          isCorrect: false,
-        },
-        {
-          option:
-            "C) React components are only used in class-based components, not in functional components.",
-          isCorrect: false,
-        },
-        {
-          option:
-            "D) React components can only be used in conjunction with Redux.",
-          isCorrect: false,
-        },
-      ],
-      answer:
-        "A) React components are reusable pieces of code that encapsulate behavior and UI.",
-    },
-    {
-      question:
-        "prem of the following statements best describes React components? prem of the following statements best describes React components? prem of the following statements best describes React components? prem of the following statements best describes React components?",
-      options: [
-        {
-          option:
-            "A) React components are reusable pieces of code that encapsulate behavior and UI.",
-          isCorrect: true,
-        },
-        {
-          option:
-            "B) React components are only used for UI design and cannot contain any behavior.",
-          isCorrect: false,
-        },
-        {
-          option:
-            "C) React components are only used in class-based components, not in functional components.",
-          isCorrect: false,
-        },
-        {
-          option:
-            "D) React components can only be used in conjunction with Redux.",
-          isCorrect: false,
-        },
-      ],
-      answer:
-        "A) React components are reusable pieces of code that encapsulate behavior and UI.",
-    },
-  ];
+  // const sample_questions = [
+  //   {
+  //     question:
+  //       "Which of the following statements best describes React components?",
+  //     options: [
+  //       "React components are reusable pieces of code that encapsulate behavior and UI.",
+  //       "React components are only used for UI design and cannot contain any behavior.",
+  //       "React components are only used in class-based components, not in functional components.",
+  //       "React components can only be used in conjunction with Redux.",
+  //     ],
+  //     answer:
+  //       "A",
+  //   },
+  //   {
+  //     question:
+  //       "Which of the following statements best describes React components?",
+  //     options: [
+  //       "React components are reusable pieces of code that encapsulate behavior and UI.",
+  //       "React components are only used for UI design and cannot contain any behavior.",
+  //       "React components are only used in class-based components, not in functional components.",
+  //       "React components can only be used in conjunction with Redux.",
+  //     ],
+  //     answer:
+  //       "A",
+  //   },
+  // ];
 
   useEffect(() => {
     const fetchData = () => {
       // const data = axios.get("new questions")
       // setQuestions(data)
       console.log("inside fetchdata function");
+      console.log(props.mcq);
       // can keep it outside
       // setQuestions(props.mcqs);
-      setQuestions(sample_questions);
+      setQuestions(props.mcq);
+      console.log("questions");
+      console.log(questions);
     };
 
     fetchData();
@@ -153,7 +68,7 @@ function FlipCard(props) {
   function handleTryAgain() {
     // Replace with your actual API call
     // const data = await axios.get("your-api-endpoint-for-questions");
-    setQuestions(sample_questions);
+    setQuestions(questions);
     console.log("inside handle try again");
     setIsFlipped(!isFlipped);
   }

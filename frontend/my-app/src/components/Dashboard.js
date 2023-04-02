@@ -7,34 +7,87 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchLearnings } from "./../store/LearningsAction";
 import styles from "./Dashboard.module.css";
 import NavBar from "./NavBar";
+import axios from "axios";
+import { Input, Stack, Button } from "@chakra-ui/react";
 
 export default function Dashboard() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [fet, setFet] = useState([]);
 
-  const learnings = useSelector((state) => state.learnings.learnings);
+  // const learnings = useSelector((state) => state.learnings.learnings);
+  // const length = learnings.length;
 
   useEffect(() => {
-    dispatch(fetchLearnings());
-  }, [dispatch]);
+    //     // dispatch(fetchLearnings());
+    //     // console.log(learnings);
+    //     const userString = JSON.stringify(JSON.parse(localStorage.getItem("user")));
+    //     const id = JSON.parse(userString);
+    // const fetch = async() => {
+    //  const res = await axios.post("http://localhost:5006/dashboard/dash", {
+    //    userid: id._id,
+    //  };
+    // })
+    const fetchData = async () => {
+      try {
+        const userString = JSON.stringify(
+          JSON.parse(localStorage.getItem("user"))
+        );
+        const id = JSON.parse(userString);
+        // getting api data
+        const data = await axios.post("http://localhost:5006/dashboard/dash", {
+          userid: id._id,
+        });
+        console.log(":::::::::::::::");
+        console.log(data.data.learnings);
+        console.log(":::::::::::::::");
+        setFet(data.data.learnings);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+    console.log("##");
+    console.log(fet);
+    console.log("###");
+  }, []);
 
   const onClickAddCourseHandler = () => {
     navigate("/add");
+  };
+  const onlogout = () => {
+    console.log("inside logout");
+    localStorage.clear();
+    navigate("/");
   };
 
   return (
     <>
       <NavBar />
+
       <div class="grid grid-cols-1 w-1/2 mx-auto">
+        <Button>
+          <a
+            href="https://testnets.opensea.io/collection/ssk-1"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View Your Certificates
+          </a>
+        </Button>
+        <Button onClick={onlogout}>Logout</Button>
+
         <div>
           <h1 class={styles.heading}>Your Learnings</h1>
         </div>
         <div>
-          {learnings.map((learning) => (
-            <div className={styles.card}>
-              <LearningCard learning={learning} />
-            </div>
-          ))}
+          {fet &&
+            fet.map((learning) => (
+              <div className={styles.card}>
+                <LearningCard learning={learning} />
+              </div>
+            ))}
         </div>
         <div className="w-98 mx-auto">
           <button

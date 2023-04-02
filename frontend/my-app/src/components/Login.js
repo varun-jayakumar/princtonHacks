@@ -16,7 +16,7 @@ import {
   InputRightElement,
 } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
-
+import axios from "axios";
 import { FaUserAlt, FaLock } from "react-icons/fa";
 
 const CFaUserAlt = chakra(FaUserAlt);
@@ -27,8 +27,21 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const handleShowClick = () => setShowPassword(!showPassword);
 
-  const handleLogin = () => {
-    navigate("/dashboard");
+  const handleLogin = async () => {
+    const data = {
+      password: "Gokul@123",
+      email: "jayavel.g@northeastern.edu",
+    };
+    const response = await axios.post("http://localhost:5006/user/login", data);
+    if (response) {
+      console.log(response.data);
+      const { _id, firstName, email } = response.data;
+
+      // Store user data in local storage
+      localStorage.setItem("user", JSON.stringify({ _id, firstName, email }));
+
+      navigate("/dashboard");
+    }
   };
 
   return (

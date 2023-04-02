@@ -13,6 +13,11 @@ export default function LearningCard({ learning }) {
   const navigate = useNavigate();
 
   function handleStartLearning() {
+    localStorage.setItem("day", learning.day);
+    localStorage.setItem("hours", learning.hours);
+    localStorage.setItem("level", learning.level);
+    localStorage.setItem("topic", learning.topic);
+    localStorage.setItem("learningId", learning._id);
     navigate("/learning");
   }
 
@@ -20,14 +25,18 @@ export default function LearningCard({ learning }) {
     <>
       <Card align="center" variant="filled">
         <CardHeader>
-          <Heading size="md">Learning topic {learning}</Heading>
+          <Heading size="md">{learning.topic}</Heading>
         </CardHeader>
         <CardBody>
-          <Text>Some Descriptiion based on what user gave as input</Text>
+          <Text>
+            Access this personalized {learning.level} study source which lets
+            you study {learning.topic} in {learning.day} days and{" "}
+            {learning.hours} hours.
+          </Text>
         </CardBody>
         <CardFooter>
           <Button colorScheme="teal" onClick={handleStartLearning}>
-            Continue Learning !
+            Start Learning !
           </Button>
         </CardFooter>
       </Card>

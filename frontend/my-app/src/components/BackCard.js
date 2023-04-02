@@ -8,6 +8,7 @@ import {
 } from "@chakra-ui/react";
 import { useDispatch } from "react-redux";
 import { LockSliceActions } from "../store/LockSlice";
+import { addLearningFormActions } from "../store/addLearningFormSlice";
 
 function BackCard(props) {
   const sampleQuestions = props.question;
@@ -16,14 +17,35 @@ function BackCard(props) {
   const setIsCompleted = props.setIsCompleted;
   const [questionIndex, setQuestionIndex] = useState(0);
   const [selectedOptions, setSelectedOptions] = useState([]);
-  const answerIndices = [];
+  const [answerIndexes, setAnswerIndexes] = useState([]);
   const dispatch = useDispatch();
   const [showTryAgain, setShowTryAgain] = useState(false);
 
-  sampleQuestions.map((question) => {
-    const index = question.options.findIndex((option) => option.isCorrect);
-    answerIndices.push(index);
-  });
+  useEffect(() => {
+    const answerIndexes = [];
+
+    sampleQuestions.forEach((question) => {
+      const answer = question.answer;
+      switch (answer) {
+        case "A":
+          answerIndexes.push(0);
+          break;
+        case "B":
+          answerIndexes.push(1);
+          break;
+        case "C":
+          answerIndexes.push(2);
+          break;
+        case "D":
+          answerIndexes.push(3);
+          break;
+        default:
+          throw new Error(`Invalid answer: ${answer}`);
+      }
+    });
+
+    setAnswerIndexes(answerIndexes);
+  }, []);
 
   function handleNextQuestion() {
     setQuestionIndex((prevIndex) => prevIndex + 1);
@@ -40,7 +62,7 @@ function BackCard(props) {
   useEffect(() => {}, [questionIndex]);
 
   function handleFinish() {
-    const correctAnswers = answerIndices.filter((index) => index !== undefined);
+    const correctAnswers = answerIndexes.filter((index) => index !== undefined);
 
     const correctAnswersCount = correctAnswers.reduce((count, index) => {
       if (selectedOptions[index] === index) {
@@ -52,17 +74,19 @@ function BackCard(props) {
 
     if (percentage >= 80) {
       console.log("Success!");
-      dispatch(LockSliceActions.unlock());
+      dispatch(addLearningFormActions.unlock());
       setIsFlipped(!isFlipped);
       setIsCompleted(true);
       setQuestionIndex(0);
       setSelectedOptions([]);
+      setAnswerIndexes([]);
       // make axios call to set the isCompleted as true
     } else {
       setIsCompleted(false);
       setShowTryAgain(true);
       setQuestionIndex(0);
       setSelectedOptions([]);
+      setAnswerIndexes([]);
     }
   }
 
@@ -81,7 +105,7 @@ function BackCard(props) {
                 checked={selectedOptions[questionIndex] === index}
                 onChange={() => handleOptionSelect(index)}
               />
-              {"    " + option.option}
+              {"    " + option}
             </label>
           </li>
         ))}

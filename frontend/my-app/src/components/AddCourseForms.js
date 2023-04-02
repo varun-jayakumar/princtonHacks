@@ -5,6 +5,7 @@ import styles from "./AddCourseForms.module.css";
 import { useNavigate } from "react-router-dom";
 import { fetchRoadMap } from "./../store/addLearningFormActions";
 import NavBar from "./NavBar";
+import axios from "axios";
 
 export default function AddCourseForms() {
   var learning = "default";
@@ -28,18 +29,32 @@ export default function AddCourseForms() {
     proficiency = e.target.value;
   };
 
-  const onSubmit = () => {
-    dispatch(
-      fetchRoadMap({
-        learning,
-        durationoflearning,
-        hoursoflearning,
-        proficiency,
-      })
+  const onSubmit = async () => {
+    const userString = JSON.stringify(JSON.parse(localStorage.getItem("user")));
+    const id = JSON.parse(userString);
+    const data = await axios.post("http://localhost:5006/roadmap/one", {
+      day: durationoflearning,
+      hours: hoursoflearning,
+      level: proficiency,
+      topic: learning,
+      userid: id._id,
+    });
+    const data2 = await axios.post(
+      "http://localhost:5006/roadmap/otherthanone",
+      {
+        day: durationoflearning,
+        hours: hoursoflearning,
+        level: proficiency,
+        topic: learning,
+        userid: id._id,
+      }
     );
-    // dispatch()
-    // dispatch to save the new learning in store
-
+    console.log(data);
+    localStorage.setItem("day", durationoflearning);
+    localStorage.setItem("hours", hoursoflearning);
+    localStorage.setItem("level", proficiency);
+    localStorage.setItem("topic", learning);
+    localStorage.setItem("userid", id._id);
     navigate("/dashboard");
   };
 
@@ -116,17 +131,7 @@ export default function AddCourseForms() {
                 name="gender"
               />
               {"  "}
-              Beginner
-            </div>
-            <div>
-              <input
-                type="radio"
-                onChange={handleChangeProficiency}
-                value="Intermidiate"
-                name="gender"
-              />
-              {"  "}
-              Intermidiate
+              Basic
             </div>
             <div>
               <input

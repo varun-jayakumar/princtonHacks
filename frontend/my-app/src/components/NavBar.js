@@ -4,9 +4,7 @@ export default function NavBar() {
   return (
     <body className={styles.body}>
       <ul className={styles.ul}>
-        <h1 className={`${styles.mainHeading}`}>
-          Dummy Baba - you personalized mentor
-        </h1>
+        <h1 className={`${styles.mainHeading}`}>StudySideKick.ai</h1>
       </ul>
     </body>
   );

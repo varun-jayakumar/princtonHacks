@@ -27,6 +27,10 @@ const Signup = () => {
   const [showPassword, setShowPassword] = useState(false);
   const handleShowClick = () => setShowPassword(!showPassword);
 
+  const signup = () => {
+    const data = {};
+  };
+
   return (
     <Flex
       flexDirection="column"
@@ -74,7 +78,7 @@ const Signup = () => {
                       pointerEvents="none"
                       children={<BiWalletAlt color="gray.300" />}
                     />
-                    <Input type="text" placeholder="Wallet address" />
+                    <Input type="password" placeholder="Password" />
                   </InputGroup>
                   <InputGroup>
                     <InputLeftElement
@@ -84,7 +88,7 @@ const Signup = () => {
                     <Input type="email" placeholder="email address" />
                   </InputGroup>
                   <InputGroup>
-                    <InputLeftAddon children="+234" />
+                    <InputLeftAddon children="+1" />
                     <Input type="tel" placeholder="phone number" />
                   </InputGroup>
                 </Stack>
@@ -109,7 +113,9 @@ const Signup = () => {
           </Link>
         </Box>
       </Stack>
-      <Button colorScheme="green">Signup</Button>
+      <Button colorScheme="green" onClick={signup}>
+        Signup
+      </Button>
     </Flex>
   );
 };

@@ -6,6 +6,7 @@ const initialState = {
   hoursoflearning: "",
   proficiency: "",
   roadmap: {},
+  lock_no: 0,
   isCompleted: false,
 };
 
@@ -19,6 +20,13 @@ export const addLearningFormSlice = createSlice({
       // which detects changes to a "draft state" and produces a brand new
       // immutable state based off those changes
       state.roadmap = action.payload;
+    },
+
+    unlock: (state, action) => {
+      state.lock_no++;
+    },
+    update: (state, action) => {
+      state.lock_no = action.payload;
     },
   },
 });
