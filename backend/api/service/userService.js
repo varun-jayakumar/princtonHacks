@@ -2,8 +2,6 @@ import { user } from "../models/user.js";
 
 export const save = async (req, res) => {
   const student = await user.findOne({ email: req.body.email });
-  console.log(req.body.email);
-  console.log(student);
 
   if (student) {
     return res.status(409).send({
@@ -15,7 +13,7 @@ export const save = async (req, res) => {
   const newUser = new user(use);
   newUser.save();
   res.status(201).send({
-    message: "Flat created successfully",
+    message: "User created successfully",
     user: newUser,
   });
   return res;

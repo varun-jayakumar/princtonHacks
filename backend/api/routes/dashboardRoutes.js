@@ -4,6 +4,6 @@ import * as dashboardController from "../controllers/dashboardController.js";
 
 const dashboardRouter = express.Router();
 
-dashboardRouter.post("/", dashboardController.getLearnings);
+dashboardRouter.post("/dash", dashboardController.getCourse);
 
 export default dashboardRouter;
