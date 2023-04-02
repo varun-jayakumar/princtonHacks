@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./FlipCard.module.css";
 import BackCard from "./BackCard";
 import {
@@ -11,9 +11,12 @@ import {
 
 function FlipCard(props) {
   const [isFlipped, setIsFlipped] = useState(false);
+  const [completed, setCompleted] = useState(false);
+  const [questions, setQuestions] = useState([]);
   const [assignmentsChecked, setAssignmentsChecked] = useState(
     Array(props.assignments.length).fill(false)
   );
+
   const sample_questions = [
     {
       question:
@@ -128,12 +131,32 @@ function FlipCard(props) {
         "A) React components are reusable pieces of code that encapsulate behavior and UI.",
     },
   ];
+
+  useEffect(() => {
+    const fetchData = () => {
+      // const data = axios.get("new questions")
+      // setQuestions(data)
+      console.log("inside fetchdata function");
+      // can keep it outside
+      // setQuestions(props.mcqs);
+      setQuestions(sample_questions);
+    };
+
+    fetchData();
+  }, []);
   const handleCheckboxChange = (idx) => {
     const newAssignmentsChecked = [...assignmentsChecked];
     newAssignmentsChecked[idx] = !newAssignmentsChecked[idx];
     setAssignmentsChecked(newAssignmentsChecked);
   };
-
+  // add async
+  function handleTryAgain() {
+    // Replace with your actual API call
+    // const data = await axios.get("your-api-endpoint-for-questions");
+    setQuestions(sample_questions);
+    console.log("inside handle try again");
+    setIsFlipped(!isFlipped);
+  }
   const allAssignmentsChecked = assignmentsChecked.every((checked) => checked);
 
   return (
@@ -160,13 +183,17 @@ function FlipCard(props) {
                         />
                       </div>
                     ))}
-                    {allAssignmentsChecked && (
+                    {(allAssignmentsChecked || completed) && (
                       <Button
                         size="sm"
                         colorScheme="yellow"
-                        onClick={() => setIsFlipped(!isFlipped)}
+                        onClick={() => {
+                          if (!completed) {
+                            setIsFlipped(!isFlipped);
+                          }
+                        }}
                       >
-                        Take Quiz
+                        {completed ? "Completed" : "Take Quiz"}
                       </Button>
                     )}
                   </div>
@@ -175,9 +202,12 @@ function FlipCard(props) {
                   <div className="flip-card-back">
                     {/* Back content */}
                     <BackCard
-                      question={sample_questions}
+                      // change this to questions variable
+                      question={questions}
                       isFlipped={isFlipped}
                       setIsFlipped={setIsFlipped}
+                      setIsCompleted={setCompleted}
+                      onTryAgain={handleTryAgain}
                     />
                   </div>
                 )}

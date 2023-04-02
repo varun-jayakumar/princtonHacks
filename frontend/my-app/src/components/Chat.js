@@ -4,7 +4,7 @@ import { useRef, useState, useEffect } from "react";
 import React from "react";
 import styles from "./Chat.module.css";
 
-export default function () {
+export default function Chat() {
   const [messages, setMessages] = useState([]);
   const chatContainerRef = useRef(null);
 

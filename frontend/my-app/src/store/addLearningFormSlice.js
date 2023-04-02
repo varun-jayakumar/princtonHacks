@@ -6,6 +6,7 @@ const initialState = {
   hoursoflearning: "",
   proficiency: "",
   roadmap: {},
+  isCompleted: false,
 };
 
 export const addLearningFormSlice = createSlice({

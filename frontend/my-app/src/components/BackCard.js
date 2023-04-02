@@ -6,14 +6,19 @@ import {
   CardFooter,
   Button,
 } from "@chakra-ui/react";
+import { useDispatch } from "react-redux";
+import { LockSliceActions } from "../store/LockSlice";
 
 function BackCard(props) {
   const sampleQuestions = props.question;
   const isFlipped = props.isFlipped;
   const setIsFlipped = props.setIsFlipped;
+  const setIsCompleted = props.setIsCompleted;
   const [questionIndex, setQuestionIndex] = useState(0);
   const [selectedOptions, setSelectedOptions] = useState([]);
   const answerIndices = [];
+  const dispatch = useDispatch();
+  const [showTryAgain, setShowTryAgain] = useState(false);
 
   sampleQuestions.map((question) => {
     const index = question.options.findIndex((option) => option.isCorrect);
@@ -47,10 +52,18 @@ function BackCard(props) {
 
     if (percentage >= 80) {
       console.log("Success!");
+      dispatch(LockSliceActions.unlock());
+      setIsFlipped(!isFlipped);
+      setIsCompleted(true);
+      setQuestionIndex(0);
+      setSelectedOptions([]);
+      // make axios call to set the isCompleted as true
     } else {
-      console.log("Fail!");
+      setIsCompleted(false);
+      setShowTryAgain(true);
+      setQuestionIndex(0);
+      setSelectedOptions([]);
     }
-    setIsFlipped(!isFlipped);
   }
 
   const currentQuestion = sampleQuestions[questionIndex];
@@ -73,15 +86,24 @@ function BackCard(props) {
           </li>
         ))}
       </ul>
-      {questionIndex < sampleQuestions.length - 1 ? (
-        <Button size="sm" colorScheme="blue" onClick={handleNextQuestion}>
-          Next question
-        </Button>
-      ) : (
-        <Button size="sm" colorScheme="green" onClick={handleFinish}>
-          Finish
-        </Button>
-      )}
+      <div>
+        {questionIndex < sampleQuestions.length - 1
+          ? !showTryAgain && (
+              <Button size="sm" colorScheme="blue" onClick={handleNextQuestion}>
+                Next question
+              </Button>
+            )
+          : !showTryAgain && (
+              <Button size="sm" colorScheme="green" onClick={handleFinish}>
+                Finish
+              </Button>
+            )}
+        {showTryAgain && (
+          <Button size="sm" colorScheme="red" onClick={props.onTryAgain}>
+            Try Again
+          </Button>
+        )}
+      </div>
     </div>
   );
 }
